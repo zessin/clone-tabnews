@@ -7,11 +7,11 @@ async function query(queryString) {
     client = await getNewClient();
     const result = await client.query(queryString);
     return result.rows;
-  } catch (e) {
-    console.error("Database query error", e);
-    throw e;
+  } catch (error) {
+    console.error("Database query error", error);
+    throw error;
   } finally {
-    await client.end();
+    await client?.end();
   }
 }
 
